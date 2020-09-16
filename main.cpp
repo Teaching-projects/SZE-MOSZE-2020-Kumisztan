@@ -1,7 +1,8 @@
 #include <iostream>
 #include "Fighters.h"
 
-void Result(Fighters& winner, Fighters& loser) {
+void Result(Fighters& winner, Fighters& loser) 
+{
 	std::cout << loser.getID() << " died. " << winner.getID() << " wins.\n";
 }
 

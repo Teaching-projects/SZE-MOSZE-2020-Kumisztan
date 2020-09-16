@@ -1,7 +1,8 @@
 #include <iostream>
 #include "Fighters.h"
 
-Fighters::Fighters(std::string ID,int hp, int dmg) : ID(ID), hp(hp), dmg(dmg) {}
+Fighters::Fighters(std::string ID,int hp, int dmg) : ID(ID), hp(hp), dmg(dmg) 
+{}
 
 std::string Fighters::getID() const
 {
