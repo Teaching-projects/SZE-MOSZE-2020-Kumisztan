@@ -1,6 +1,6 @@
-#include <iostream>   
-#ifndef CHARACTER.H
-#define CHARACTER.H
+#include <iostream>  
+#ifndef FIGHTERS_H
+#define FIGHTERS_H
 
 class Fighters
 {
@@ -9,12 +9,12 @@ class Fighters
     friend std::ostream &operator<<(std::ostream &o, const Fighters &u);
 
 public:
-    Fighters(std::string ID, int hp, int dmg)
+    Fighters(std::string ID, int hp, int dmg);
     std::string getID() const;
     int getHP() const;
     int getDmg() const;
-    void setHp(int newHp);
-    void Fight(Fighters &enemy)
+    void setHP(int newHp);
+    void Fight(Fighters &enemy);
 };
 
 #endif

@@ -1,8 +1,8 @@
 #include <iostream>
-#include "Character.h"
+#include "Fighters.h"
 
 void Result(Fighters& winner, Fighters& loser) {
-	std::cout << loser.getName() << " died. " << winner.getName() << " wins.\n";
+	std::cout << loser.getID() << " died. " << winner.getID() << " wins.\n";
 }
 
 int main(int argc, char *argv[])
@@ -12,18 +12,18 @@ int main(int argc, char *argv[])
 
 	std::cout << A << B;
 
-	while (A.getHp() > 0)
+	while (A.getHP() > 0)
 	{
 		A.Fight(B);
 		std::cout << A << B;
 
-		if (B.getHp() == 0) { break; }
+		if (B.getHP() == 0) { break; }
 
 		B.Fight(A);
 		std::cout << A << B;
 	}
 
-	(A.getHp() > 0) ? Result(A, B) : Result(B, A);
+	(A.getHP() > 0) ? Result(A, B) : Result(B, A);
 
 	return 0;
 }
