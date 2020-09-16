@@ -1,4 +1,4 @@
-#include <iostream>  
+#include <iostream> 
 #ifndef FIGHTERS_H
 #define FIGHTERS_H
 
