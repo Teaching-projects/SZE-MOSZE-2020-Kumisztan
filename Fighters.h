@@ -5,7 +5,8 @@
 class Fighters
 {
     const std::string ID;
-    int hp, dmg;
+    int hp; 
+    const int dmg;
     friend std::ostream &operator<<(std::ostream &o, const Fighters &u);
 
 public:
