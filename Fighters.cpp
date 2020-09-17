@@ -19,16 +19,10 @@ int Fighters::getDmg() const
     return dmg;
 }
 
-void Fighters::setHP(const int newHp)
-{
-    hp = newHp;
-}
-
 void Fighters::Fight(Fighters &enemy)
 {
-    std::cout << ID << " -> " << enemy.getID() << std::endl;
 	int newHp = enemy.getHP() - dmg;
-	(newHp > 0) ? enemy.setHP(newHp) : enemy.setHP(0);
+	(newHp > 0) ? enemy.hp = newHp : enemy.hp = 0;
 }
 
 std::ostream &operator<<(std::ostream &out, const Fighters &u)
