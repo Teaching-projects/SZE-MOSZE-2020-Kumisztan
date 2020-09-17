@@ -15,11 +15,13 @@ int main(int argc, char *argv[])
 
 	while (A.getHP() > 0)
 	{
+		std::cout << A.getID() << " -> " << B.getID() << std::endl;
 		A.Fight(B);
 		std::cout << A << B;
 
 		if (B.getHP() == 0) { break; }
 
+		std::cout << B.getID() << " -> " << A.getID() << std::endl;
 		B.Fight(A);
 		std::cout << A << B;
 	}
