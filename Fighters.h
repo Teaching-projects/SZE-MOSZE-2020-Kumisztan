@@ -14,7 +14,6 @@ public:
     std::string getID() const;
     int getHP() const;
     int getDmg() const;
-    void setHP(int newHp);
     void Fight(Fighters &enemy);
 };
 
