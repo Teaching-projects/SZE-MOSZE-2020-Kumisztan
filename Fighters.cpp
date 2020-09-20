@@ -21,8 +21,8 @@ int Fighters::getDmg() const
 
 void Fighters::Fight(Fighters &enemy)
 {
-	int newHp = enemy.getHP() - dmg;
-	(newHp > 0) ? enemy.hp = newHp : enemy.hp = 0;
+	hp = enemy.getHP() - dmg;
+	(hp > 0) ? enemy.hp = hp : enemy.hp = 0;
 }
 
 std::ostream &operator<<(std::ostream &out, const Fighters &u)
