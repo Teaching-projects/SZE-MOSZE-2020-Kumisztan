@@ -1,20 +1,41 @@
-#include <iostream> 
 #ifndef FIGHTERS_H
 #define FIGHTERS_H
 
+#include <iostream> 
+#include <fstream>
 class Fighters
 {
     const std::string ID;
-    int hp; 
+    const int maxhp; 
+    int hp;
     const int dmg;
     friend std::ostream &operator<<(std::ostream &o, const Fighters &u);
 
 public:
-    Fighters(std::string ID, int hp, int dmg);
-    std::string getID() const;
-    int getHP() const;
-    int getDmg() const;
-    void Fight(Fighters &enemy);
+    Fighters(std::string _ID, int _maxhp, int _dmg): ID(_ID), maxhp(_maxhp), dmg(_dmg), hp(_maxhp)
+    {}
+    ~Fighters()
+    {}
+    
+    static Fighters parseUnit(const std::string& jsonfile);
+
+    std::string getID() const
+    { 
+        return ID;
+    }
+   
+    int getHP() const
+    {
+        return hp;
+    }
+    
+    int getDmg() const
+    {
+        return dmg;
+    }
+
+    void Fight(const Fighters &enemy);
+    
 };
 
 #endif
