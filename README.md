@@ -4,13 +4,17 @@ Projekt feladat Modern szoftverfejlesztési eszközök (GKNB_INTM006) tárgyra.
 
 ## Működése
 
-A program működéséhez 6 (karakterenként 3-3) paraméter megadása szükséges, melyek a következők:
+A program működéséhez 2 json fájl megadása szükséges, melyek a karakterek tulajdonságait tartalmazzák.
 
-- ID: karakter azonosítója - neve (string)
-- hp: karakter életereje (int)
-- dmg: karakter sebzése (int)
+Például a Petyero.json fájl tartalma:
 
-Az értékek megadása után, a két karakter addig üti egymást, míg egyikük HP-ja 0-ra csökken, elvesztve így a meccset.
+{
+    "name" : "PETYERO",
+    "hp" : 20000,
+    "dmg" : 2500
+}
+
+A fájlok megadása után, a két karakter addig üti egymást, míg egyikük HP-ja 0-ra csökken, elvesztve így a meccset.
 
 Futtatáshoz a kódot először le kell fordítani:
 
@@ -20,10 +24,10 @@ Majd ezután futtathatjuk.
 
 Például:
 
-./a.out Peter 150 10 Dan 45 30
+./a.out Units/Petyero.json Units/Vargussen.json
 
 ## Készítették
 
-- Győrvári Péter Sándor (ZC67Y8)
+- Győrvári Péter (ZC67Y8)
 - Unger Márton (BG4HZ2)
 - Varga Dániel (J5HZI6)
