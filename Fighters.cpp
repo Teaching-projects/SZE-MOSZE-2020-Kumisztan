@@ -1,31 +1,17 @@
 #include <iostream>
+#include <string>
 #include "Fighters.h"
 
-Fighters::Fighters(std::string ID,int hp, int dmg) : ID(ID), hp(hp), dmg(dmg) 
-{}
-
-std::string Fighters::getID() const
+std::ostream &operator<<(std::ostream &o, const Fighters &u)
 {
-    return ID;
+	return o << u.getID() << ": HP: " << u.getHP() << ", DMG: " << u.getDmg() << std::endl;
 }
-
-int Fighters::getHP() const
+void Fighters::Fight(const Fighters &enemy)
 {
-    return hp;
+    (hp-enemy.getDmg() > 0) ? hp -= enemy.getDmg() : hp = 0; 
 }
-
-int Fighters::getDmg() const
+Fighters Fighters::parseUnit(const std::string &jsonfile)
 {
-    return dmg;
-}
-
-void Fighters::Fight(Fighters &enemy)
-{
-	hp = enemy.getHP() - dmg;
-	(hp > 0) ? enemy.hp = hp : enemy.hp = 0;
-}
-
-std::ostream &operator<<(std::ostream &out, const Fighters &u)
-{
-	return out << u.getID() << ": HP: " << u.getHP() << ", DMG: " << u.getDmg() << std::endl;
+     // some code here
+    return Fighters("Janos",300,200);
 }
