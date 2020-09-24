@@ -11,8 +11,8 @@ Például a Petyero.json fájl tartalma:
 ```
 {
     "name" : "PETYERO",
-    "hp" : 20000,
-    "dmg" : 2500
+    "hp" : 200,
+    "dmg" : 50
 }
 ```
 
@@ -26,7 +26,7 @@ Majd ezután futtathatjuk.
 
 Például:
 
-`./a.out Units/Petyero.json Units/Vargussen.json`
+`./a.out Petyero Vargussen`
 
 ## Készítették
 
