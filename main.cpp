@@ -8,10 +8,11 @@ void Result(Fighters& winner)
 
 int main(int argc, char *argv[])
 {
-    Fighters A = Fighters::parseUnit(argv[1]);
+ 	try
+	{   
+	Fighters A = Fighters::parseUnit(argv[1]);
 	Fighters B = Fighters::parseUnit(argv[2]);
-	try
-	{
+
 		while (A.getHP() > 0)
 		{
 			A.Fight(B);
