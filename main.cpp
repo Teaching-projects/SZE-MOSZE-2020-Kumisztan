@@ -3,7 +3,7 @@
 
 void Result(Fighters& winner) 
 {
-	std::cout <<winner.getID() << " wins. Remaining HP: " << winner.getHP() << std::endl;
+	std::cout <<winner.getID() << " wins. Remaining HP: " << winner.getHP() << "\n";
 }
 
 int main(int argc, char *argv[])
