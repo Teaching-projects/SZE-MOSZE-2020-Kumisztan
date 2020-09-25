@@ -8,6 +8,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - run: g++ -Wall main.cpp Fighters.cpp -o a.out
+      - run: g++ -std=c++17 main.cpp Fighters.cpp -o a.out
       - run: ./run_test.sh a.out generated_output.txt
       - run: diff generated_output.txt good_output.txt
