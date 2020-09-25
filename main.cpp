@@ -12,7 +12,7 @@ int main(int argc, char *argv[])
 	{  
 		Fighters A = Fighters::parseUnit(argv[1]);
 		Fighters B = Fighters::parseUnit(argv[2]);
-		
+			
 		while (A.getHP() > 0)
 			{
  				A.Fight(B);
@@ -20,12 +20,12 @@ int main(int argc, char *argv[])
 				B.Fight(A);
 				if (A.getHP() == 0) {Result(B); break;}
 			}
-   }
-   
+   	}
 	catch(const std::exception& e)
 	{
 		std::cerr << e.what() << '\n';
 	}
+	
 
 return 0;
 }

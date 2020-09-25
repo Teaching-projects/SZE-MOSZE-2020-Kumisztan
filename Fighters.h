@@ -9,15 +9,13 @@ class Fighters
     const int maxhp; 
     int hp;
     const int dmg;
-    friend std::ostream &operator<<(std::ostream &o, const Fighters &u);
-
 public:
     Fighters(std::string _ID, int _maxhp, int _dmg): ID(_ID), maxhp(_maxhp), dmg(_dmg), hp(_maxhp)
     {}
     ~Fighters()
     {}
     
-    static Fighters parseUnit(const std::string& jsonfile);
+    static Fighters parseUnit(const std::string &jsonfile);
 
     std::string getID() const
     { 
@@ -34,8 +32,7 @@ public:
         return dmg;
     }
 
-    void Fight(const Fighters &enemy);
-    
+    void Fight(Fighters &enemy);
 };
 
 #endif
