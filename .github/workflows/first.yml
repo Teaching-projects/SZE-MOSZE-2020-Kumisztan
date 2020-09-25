@@ -1,0 +1,14 @@
+name: First workflow
+
+on:
+  push
+
+jobs:
+  build_and_test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: g++ -std=c++17 main.cpp Fighters.cpp -o a.out
+      - run: chmod +x ./run_test.sh
+      - run: ./run_test.sh a.out output.txt
+      - run: diff output.txt good_output.txt
