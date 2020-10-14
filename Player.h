@@ -7,8 +7,8 @@ class Player
 {
     const std::string ID;
     double maxhp; 
-    int hp;
     double dmg;
+    int hp;
     int xp = 0;
     int level = 1;
 public:

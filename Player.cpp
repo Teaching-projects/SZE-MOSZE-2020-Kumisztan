@@ -45,14 +45,9 @@ void Player::Fight(Player& enemy)
         {
             hp = 0;
         }
-
-        /*std::cout<< getID() << " - Actual HP: " << getHP() << ", Actual Dmg: " << getDmg() 
-                 << ", Actual XP: " << getXP() << "\n";
-        std::cout<< enemy.getID() << " - Actual HP: " << enemy.getHP() << ", Actual Dmg: " << enemy.getDmg() 
-                 << ", Actual XP: " << enemy.getXP() << "\n";*/
-        
     }
 }
+
 Player Player::parseUnit(const std::string &jsonfile)
 {
     {
@@ -74,6 +69,5 @@ Player Player::parseUnit(const std::string &jsonfile)
 
 	file.close();
     return Player(ID, hp, dmg);
-    
     }
 }

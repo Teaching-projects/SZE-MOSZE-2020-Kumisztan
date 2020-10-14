@@ -7,8 +7,8 @@ class Fighters
 {
     const std::string ID;
     const int maxhp; 
-    int hp;
     const int dmg;
+    int hp;
 public:
     Fighters(std::string _ID, int _maxhp, int _dmg): ID(_ID), maxhp(_maxhp), dmg(_dmg), hp(_maxhp)
     {}
