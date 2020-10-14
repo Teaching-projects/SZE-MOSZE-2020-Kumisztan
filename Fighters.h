@@ -3,14 +3,18 @@
 
 #include <iostream> 
 #include <fstream>
+#include <string>
+
 class Fighters
 {
     const std::string ID;
-    const int maxhp; 
+    const int maxhp;
     int hp;
     const int dmg;
+    const double asp;
+
 public:
-    Fighters(std::string _ID, int _maxhp, int _dmg): ID(_ID), maxhp(_maxhp), dmg(_dmg), hp(_maxhp)
+    Fighters(const std::string _ID, int _maxhp, int _dmg, const double _asp): ID(_ID), hp(_maxhp), dmg(_dmg), asp(_asp), maxhp(_maxhp)
     {}
     ~Fighters()
     {}
@@ -31,8 +35,15 @@ public:
     {
         return dmg;
     }
+    
+    double getAsp() const
+    {
+        return asp;
+    }
 
-    void Fight(Fighters &enemy);
+    void Hit(Fighters &enemy);
+    static Fighters* Fight(Fighters& A, Fighters& B);
+
 };
 
 #endif
