@@ -12,6 +12,7 @@ class Fighters
     int hp;
     const int dmg;
     const double asp;
+    void Hit(Fighters &enemy);
 
 public:
     Fighters(const std::string _ID, int _maxhp, int _dmg, const double _asp): ID(_ID), hp(_maxhp), dmg(_dmg), asp(_asp), maxhp(_maxhp)
@@ -41,7 +42,6 @@ public:
         return asp;
     }
 
-    void Hit(Fighters &enemy);
     static Fighters* Fight(Fighters& A, Fighters& B);
 
 };
