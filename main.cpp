@@ -1,8 +1,7 @@
 #include <iostream>
 #include "Fighters.h"
-#include "Player.h"
 
-void Result(Player& winner) 
+void Result(Fighters& winner) 
 {
 	std::cout <<winner.getID() << " wins. Remaining HP: " << winner.getHP() << ". Level: " << winner.getLevel() << "\n";
 }
@@ -12,8 +11,8 @@ int main(int argc, char* argv[])
 	(void)argc;
 		try
 		{  
-			Player A = Player::parseUnit(argv[1]);
-			Player B = Player::parseUnit(argv[2]);
+			Fighters A = Fighters::parseUnit(argv[1]);
+			Fighters B = Fighters::parseUnit(argv[2]);
 			
 			while (A.getHP() > 0)
 			{

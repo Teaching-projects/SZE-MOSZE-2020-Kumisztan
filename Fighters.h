@@ -3,12 +3,15 @@
 
 #include <iostream> 
 #include <fstream>
+
 class Fighters
 {
     const std::string ID;
-    const int maxhp; 
-    const int dmg;
+    double maxhp; 
+    double dmg;
     int hp;
+    int xp = 0;
+    int level = 1;
 public:
     Fighters(std::string _ID, int _maxhp, int _dmg): ID(_ID), maxhp(_maxhp), dmg(_dmg), hp(_maxhp)
     {}
@@ -30,6 +33,16 @@ public:
     int getDmg() const
     {
         return dmg;
+    }
+
+    int getXP() const
+    {
+        return xp;
+    }
+
+    int getLevel() const
+    {
+        return level;
     }
 
     void Fight(Fighters &enemy);

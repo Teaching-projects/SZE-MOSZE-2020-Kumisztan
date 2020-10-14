@@ -1,17 +1,55 @@
 #include <iostream>
 #include <string>
+#include <math.h>
 #include "Fighters.h"
-
 
 void Fighters::Fight(Fighters& enemy)
 {
+
     while (hp > 0)
     {
-        (enemy.getHP()-dmg > 0) ? enemy.hp -= getDmg() : enemy.hp = 0;
+        if (enemy.getHP()-dmg > 0)
+        {
+            enemy.hp -= getDmg(); 
+            xp += getDmg();
+            int i = round(getXP()/100);
+            if(getXP() >= 100) 
+            {
+                level += i; 
+                maxhp += round(maxhp*0.1);
+                hp = maxhp;
+                dmg += dmg*0.1;
+                xp -= getXP();
+            } 
+        } 
+        else
+        {
+            enemy.hp = 0;
+        }
+        
 		if (enemy.getHP() == 0) { break; }
-    	(hp - enemy.getDmg() > 0) ? hp -= enemy.dmg : hp = 0;
+
+    	if (hp - enemy.getDmg() > 0)
+        {
+             hp -= enemy.dmg;
+             enemy.xp += enemy.getDmg();
+             int j = round(enemy.getXP()/100);
+             if(enemy.getXP() >= 100) 
+            {
+                enemy.level += j; 
+                enemy.maxhp += enemy.maxhp*0.1;
+                enemy.hp = enemy.maxhp;
+                enemy.dmg += enemy.dmg*0.1;
+                enemy.xp -= enemy.getXP();
+            } 
+        }
+        else
+        {
+            hp = 0;
+        }
     }
 }
+
 Fighters Fighters::parseUnit(const std::string &jsonfile)
 {
     {
@@ -33,6 +71,5 @@ Fighters Fighters::parseUnit(const std::string &jsonfile)
 
 	file.close();
     return Fighters(ID, hp, dmg);
-    
     }
 }
