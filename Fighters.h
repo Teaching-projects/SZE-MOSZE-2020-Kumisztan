@@ -7,9 +7,9 @@
 class Fighters
 {
     const std::string ID = "";
-    double maxhp = 0; 
-    double dmg = 0;
-    int hp = 0;
+    double maxhp; 
+    double dmg;
+    int hp;
     int xp = 0;
     int level = 1;
 public:

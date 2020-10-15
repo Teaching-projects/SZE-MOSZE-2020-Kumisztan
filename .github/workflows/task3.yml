@@ -1,4 +1,4 @@
-name: Task2 workflow
+name: Cppcheck and valgrind workflow
 
 on:
   push
