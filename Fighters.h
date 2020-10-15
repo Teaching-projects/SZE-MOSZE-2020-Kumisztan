@@ -1,8 +1,9 @@
 #ifndef FIGHTERS_H
 #define FIGHTERS_H
 
-#include <iostream> 
-#include <fstream>
+//#include <iostream> 
+//#include <fstream>
+#include "json.h"
 class Fighters
 {
     const std::string ID;
