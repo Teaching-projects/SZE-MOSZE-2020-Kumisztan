@@ -2,14 +2,14 @@
 
 std::map<std::string, std::string> Parser::Parse(std::string fileName)
 {
-    std::ifstream fstream("units/" + fileName);
+    std::ifstream fstream("Units/" + fileName);
     return Parser::Parse(fstream);
 }
 
 std::map<std::string, std::string> Parser::Parse(const char *fileName)
 {
     std::string fName(fileName);
-    std::ifstream file("units/" + fName);
+    std::ifstream file("Units/" + fName);
 
     return Parser::Parse(file);
 }
