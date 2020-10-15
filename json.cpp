@@ -26,7 +26,7 @@ std::map<std::string, std::string> Parser::Parse(std::ifstream &fileStream)
             for (fileStream.get(c); c != '\"'; fileStream.get(c))
                 key += c;
 
-            for (fileStream.get(c); c == ':' || c == ' ' || c == '\"'; fileStream.get(c)) // skip until val starts
+            for (fileStream.get(c); c == ':' || c == ' ' || c == '\"'; fileStream.get(c))
                 ;
 
             std::string val = "";
