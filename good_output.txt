@@ -1,6 +1,6 @@
-VARGUSSEN wins. Remaining HP: 50
-UMBG wins. Remaining HP: 50
-VARGUSSEN wins. Remaining HP: 100
-VARGUSSEN wins. Remaining HP: 50
-UMBG wins. Remaining HP: 100
-VARGUSSEN wins. Remaining HP: 10
+VARGUSSEN wins. Remaining HP: 166. Level: 4
+UMBG wins. Remaining HP: 100. Level: 4
+VARGUSSEN wins. Remaining HP: 115. Level: 2
+VARGUSSEN wins. Remaining HP: 70. Level: 1
+UMBG wins. Remaining HP: 60. Level: 2
+VARGUSSEN wins. Remaining HP: 85. Level: 3

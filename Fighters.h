@@ -6,10 +6,10 @@
 
 class Fighters
 {
-    const std::string ID;
-    double maxhp; 
-    double dmg;
-    int hp;
+    const std::string ID = "";
+    double maxhp = 0; 
+    double dmg = 0;
+    int hp = 0;
     int xp = 0;
     int level = 1;
 public:
@@ -17,7 +17,7 @@ public:
     {}
     ~Fighters()
     {}
-    
+
     static Fighters parseUnit(const std::string &jsonfile);
 
     std::string getID() const
