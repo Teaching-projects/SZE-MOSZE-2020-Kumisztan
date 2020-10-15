@@ -15,7 +15,7 @@ void Fighters::Fight(Fighters& enemy)
 }
 Fighters Fighters::parseUnit(const std::string &jsonfile)
 {
-    std::ifstream File("units/" + jsonfile);
+    std::ifstream File("Units/" + jsonfile);
 	if (File.is_open())
     {
         std::map<std::string, std::string> unitValues;
