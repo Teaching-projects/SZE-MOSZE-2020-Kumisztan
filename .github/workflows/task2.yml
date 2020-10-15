@@ -3,7 +3,7 @@ name: Task2 workflow
 on:
   push
 
-  jobs:
+jobs:
   build_and_test:
     runs-on: ubuntu-latest
     steps:
