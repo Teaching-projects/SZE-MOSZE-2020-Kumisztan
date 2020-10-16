@@ -1,3 +1,10 @@
+/**
+ * @file Fighters.cpp
+ * 
+ * @brief The substantive methods
+ * 
+*/
+
 #include "Fighters.h"
 
 Fighters Fighters::parseUnit(const std::string &jsonfile)

@@ -1,3 +1,19 @@
+/**
+ * @file main.cpp
+ * @version 1.0.3
+ * @author Kumisztan
+ *  
+ * ==================
+ *  | Varga Dániel   |
+ *  | Unger Márton   |
+ *  | Győrvári Péter |
+ *  ==================
+ *
+ * @brief this is the file which contain the main functions calling.
+ *
+ * @date 2020/10/15
+*/
+
 #include "Fighters.h"
 
 int main(int argc, char *argv[])
