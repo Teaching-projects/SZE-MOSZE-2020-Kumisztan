@@ -25,7 +25,7 @@ TEST(JsonTest, ParseString)
 TEST(JsonTest, Filetest)
 {
     ASSERT_THROW(Parser::Parse("nope.json"), std::runtime_error);
-    ASSERT_NO_THROW(Parser::Parse("../Unit/Petyero.json"));
+    ASSERT_NO_THROW(Parser::Parse("../Units/Petyero.json"));
 }
 
 int main(int argc, char **argv)
