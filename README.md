@@ -33,3 +33,5 @@ Például:
 - Győrvári Péter (ZC67Y8)
 - Unger Márton (BG4HZ2)
 - Varga Dániel (J5HZI6)
+
+A doxygen dokumentáció elérhető itt: https://teaching-projects.github.io/SZE-MOSZE-2020-Kumisztan/

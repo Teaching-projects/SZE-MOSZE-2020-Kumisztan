@@ -1,10 +1,20 @@
-#include <iostream>
-#include "Fighters.h"
+/**
+ * @file main.cpp
+ * @version 1.0.3
+ * @author Kumisztan
+ *  
+ * ==================
+ *  | Varga Dániel   |
+ *  | Unger Márton   |
+ *  | Győrvári Péter |
+ *  ==================
+ *
+ * @brief this is the file which contain the main functions calling.
+ *
+ * @date 2020/10/15
+*/
 
-void Result(Fighters& winner) 
-{
-	std::cout <<winner.getID() << " wins. Remaining HP: " << winner.getHP() << "\n";
-}
+#include "Fighters.h"
 
 int main(int argc, char *argv[])
 {
@@ -12,14 +22,10 @@ int main(int argc, char *argv[])
 	{  
 		Fighters A = Fighters::parseUnit(argv[1]);
 		Fighters B = Fighters::parseUnit(argv[2]);
-			
-		while (A.getHP() > 0)
-			{
- 				A.Fight(B);
-   				if (B.getHP() == 0) {Result(A); break;}
-				B.Fight(A);
-				if (A.getHP() == 0) {Result(B); break;}
-			}
+		
+		Fighters* winner = Fighters::Fight(A,B);
+		
+		std::cout << winner->getID() << " wins. Remaining HP: " << winner->getHP() << std::endl;
    	}
 	catch(const std::exception& e)
 	{
