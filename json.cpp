@@ -1,20 +1,46 @@
 #include "json.h"
+#include <sstream>
 
-std::map<std::string, std::string> Parser::Parse(std::string fileName)
+std::map<std::string, std::string> Parser::Parse_string(std::string fileName)
 {
-    std::ifstream fstream("Units/" + fileName);
-    return Parser::Parse(fstream);
+   
+    std::map<std::string, std::string> strg;
+	std::string ln,ln1,ln2;
+	std::istringstream stream(fileName);
+
+	while (stream)
+    {
+		ln1 = "", ln2 = "";
+		std::getline(stream, ln);
+		if (ln.find('{') == std::string::npos && ln.find('}') == std::string::npos)
+        {
+			for (unsigned int i = 0; i < ln.find(':'); i++)
+            {
+				if (ln[i] != ' ' && ln[i] != '"'){ ln1 += ln[i]; }
+			}
+			for (unsigned int i = ln.find(':') + 1; i < ln.size(); i++)
+            {
+				if (ln[i] != ' ' && ln[i] != '"' && ln[i] != ','){ ln2 += ln[i]; }
+			}
+			strg.insert({ ln1,ln2 });
+		}
+	}
+	return strg;
 }
 
-std::map<std::string, std::string> Parser::Parse(const char *fileName)
+std::map<std::string, std::string> Parser::Parse_file(const std::string& fileName)
 {
-    std::string fName(fileName);
-    std::ifstream file("Units/" + fName);
+    std::map<std::string, std::string> fName;
+	std::ifstream file;
 
-    return Parser::Parse(file);
+	file.open(fileName);
+	fName = Parser::Parse_stream(file);
+	file.close();
+
+	return fName;
 }
 
-std::map<std::string, std::string> Parser::Parse(std::ifstream &fileStream)
+std::map<std::string, std::string> Parser::Parse_stream(std::ifstream &fileStream)
 {
     std::map<std::string, std::string> myMap;
     char c;

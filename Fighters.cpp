@@ -19,7 +19,7 @@ Fighters Fighters::parseUnit(const std::string &jsonfile)
 	if (File.is_open())
     {
         std::map<std::string, std::string> unitValues;
-        unitValues = Parser::Parse(File);
+        unitValues = Parser::Parse_stream(File);
 
         std::string name = unitValues["name"];
         int hp = std::stoi(unitValues["hp"]);
