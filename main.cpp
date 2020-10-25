@@ -17,11 +17,14 @@ int main(int argc, char* argv[])
 			while (A.getHP() > 0)
 			{
  				A.Fight(B);
-   				if (B.getHP() == 0) {Result(A); break;}
+   				if (B.getHP() == 0) { break; }
 				B.Fight(A);
-				if (A.getHP() == 0) {Result(B); break;}
 			}
+
+			if(B.getHP() == 0) { Result(A); }
+			else { Result(B); }
    		}
+
 		catch(const std::exception& e)
 		{
 			std::cerr << e.what() << '\n';
