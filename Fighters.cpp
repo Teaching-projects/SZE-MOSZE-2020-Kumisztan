@@ -5,22 +5,25 @@
 
 void Fighters::Fight(Fighters& enemy)
 {
+        double i = 0;
+        
         if (enemy.getHP()-getDmg() > 0)
         {
             enemy.hp -= getDmg(); 
+            xp += getDmg();
         } 
-        else
+        else if (enemy.getHP()-getDmg() < 0)
         {
+            xp += enemy.getHP();
             enemy.hp = 0;
         }
 
-        xp += getDmg();
-        int i = floor(getXP()/100);
+        i = (int) getXP() / 100;
 
         if(getXP() >= 100) 
         {
             level += i; 
-            maxhp += floor(maxhp*0.1);
+            maxhp += round(maxhp*0.1);
             hp = maxhp;
             dmg += dmg*0.1;
             xp -= getXP();
