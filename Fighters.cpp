@@ -4,30 +4,26 @@
 #include "Fighters.h"
 
 void Fighters::Fight(Fighters& enemy)
-{
-        double i = 0;
-        
-        if (enemy.getHP()-getDmg() > 0)
+{   
+        if (enemy.hp-getDmg() > 0)
         {
             enemy.hp -= getDmg(); 
             xp += getDmg();
         } 
-        else if (enemy.getHP()-getDmg() < 0)
+        else
         {
-            xp += enemy.getHP();
+            xp += enemy.hp;
             enemy.hp = 0;
         }
 
-        i = (int) getXP() / 100;
-
-        if(getXP() >= 100) 
+        while(xp >= 100)
         {
-            level += i; 
+            level++;
             maxhp += round(maxhp*0.1);
             hp = maxhp;
-            dmg += dmg*0.1;
-            xp -= getXP();
-        } 
+            dmg += round(dmg*0.1);
+            xp -= 100;
+        }
 }
 
 Fighters Fighters::parseUnit(const std::string &jsonfile)
