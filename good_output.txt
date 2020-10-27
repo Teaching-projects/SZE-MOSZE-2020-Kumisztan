@@ -4,3 +4,4 @@ VARGUSSEN wins. Remaining HP: 254. Level: 3
 VARGUSSEN wins. Remaining HP: 254. Level: 3
 UMBG wins. Remaining HP: 518. Level: 11
 VARGUSSEN wins. Remaining HP: 600. Level: 12
+

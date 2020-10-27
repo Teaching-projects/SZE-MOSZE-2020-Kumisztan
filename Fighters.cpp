@@ -24,6 +24,7 @@ void Fighters::Fight(Fighters& enemy)
             dmg += round(dmg*0.1);
             xp -= 100;
         }
+        
 }
 
 Fighters Fighters::parseUnit(const std::string &jsonfile)
