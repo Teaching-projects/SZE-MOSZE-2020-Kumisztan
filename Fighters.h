@@ -19,10 +19,10 @@
 class Fighters
 {
     const std::string ID; ///< The fighter's name
-    int maxhp; ///< The fighter's starter heal point
     int hp; ///< The fighter's variable heal points
     int dmg; ///< The fighter's damage
     double asp; ///< The fighter's attack cooldown
+    int maxhp; ///< The fighter's starter heal point
     int xp = 0; ///< The fighter's experience points
     int level = 1; ///< The fighter's level
 
