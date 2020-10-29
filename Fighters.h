@@ -16,6 +16,7 @@
 #include <math.h>
 #include <string>
 
+
 class Fighters
 {
     const std::string ID; ///< The fighter's name
