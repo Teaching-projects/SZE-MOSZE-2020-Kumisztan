@@ -52,7 +52,7 @@ void Fighters::Hit(Fighters& enemy)
             maxhp += round(maxhp*0.1);
             hp = maxhp;
             dmg += round(dmg*0.1);
-            asp += round(asp*0.1);
+            asp += asp*0.1;
             xp -= 100;
         }
 }
