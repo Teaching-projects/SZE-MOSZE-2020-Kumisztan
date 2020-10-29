@@ -27,7 +27,7 @@ int main(int argc, char* argv[])
 		Fighters* winner = Fighters::Fight(A,B);
 		
 		std::cout << winner->getID() << " wins. Remaining HP: " << winner->getHP() << std::endl;
-  }
+  	}
 	catch(const std::exception& e)
 	{
 		std::cerr << e.what() << '\n';

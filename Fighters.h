@@ -95,8 +95,6 @@ public:
     {
         return level;
     }
-
-    void Fight(Fighters &enemy);
 };
 
 #endif
