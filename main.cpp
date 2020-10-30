@@ -18,6 +18,7 @@
 
 int main(int argc, char* argv[])
 {
+	(void)argc;
  	try
 	{  
 		Fighters A = Fighters::parseUnit(argv[1]);
