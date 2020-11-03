@@ -59,7 +59,8 @@ void Fighters::Hit(Fighters& enemy)
 
 Fighters* Fighters::Fight(Fighters& A, Fighters& B)
 {
-    double timeA, timeB = 0.0;	
+    double timeA = 0.0; 
+    double timeB = 0.0;	
 
     while(A.getHP() > 0 && B.getHP() > 0) 
     {
