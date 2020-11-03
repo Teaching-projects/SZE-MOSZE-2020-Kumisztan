@@ -13,15 +13,19 @@
 
 #include <iostream> 
 #include <fstream>
+#include <math.h>
 #include <string>
+
 
 class Fighters
 {
     const std::string ID; ///< The fighter's name
-    const int maxhp; ///< The fighter's starter heal point
     int hp; ///< The fighter's variable heal points
-    const int dmg; ///< The fighter's damage
-    const double asp; ///< The fighter's attack cooldown
+    int dmg; ///< The fighter's damage
+    double asp; ///< The fighter's attack cooldown
+    int maxhp; ///< The fighter's starter heal point
+    int xp = 0; ///< The fighter's experience points
+    int level = 1; ///< The fighter's level
 
     /**
      * @brief It just integrated to the "Fight" function. Reduces the enemy's health until it is 0.
@@ -46,6 +50,7 @@ public:
      * 
      * @return (name,hp,dmg,ack) from Fighters class
     */
+  
     static Fighters parseUnit(const std::string &jsonfile);
 
     /// Getter of fighter's name   
@@ -82,6 +87,15 @@ public:
     */
     static Fighters* Fight(Fighters& A, Fighters& B);
 
+    int getXP() const
+    {
+        return xp;
+    }
+
+    int getLevel() const
+    {
+        return level;
+    }
 };
 
 #endif
