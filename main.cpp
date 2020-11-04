@@ -1,35 +1,38 @@
-#include <iostream>
+/**
+ * @file main.cpp
+ * @version 1.0.3
+ * @author Kumisztan
+ *  
+ * ==================
+ *  | Varga Dániel   |
+ *  | Unger Márton   |
+ *  | Győrvári Péter |
+ *  ==================
+ *
+ * @brief this is the file which contain the main functions calling.
+ *
+ * @date 2020/10/15
+*/
+
 #include "Fighters.h"
 
-void Result(Fighters& winner) 
+int main(int argc, char* argv[])
 {
-	std::cout <<winner.getID() << " wins. Remaining HP: " << winner.getHP() << "\n";
-}
-
-int main(int argc, char *argv[])
-{
-
 	if(argc!=3) {throw "ERROR";}
-	else{
- 		try
-		{  
-			Fighters A = Fighters::parseUnit(argv[1]);
-			Fighters B = Fighters::parseUnit(argv[2]);
-			
-			while (A.getHP() > 0)
-				{
- 					A.Fight(B);
-   					if (B.getHP() == 0) {Result(A); break;}
-					B.Fight(A);
-					if (A.getHP() == 0) {Result(B); break;}
-				}
-   		}
-		catch(const std::exception& e)
-		{
-			std::cerr << e.what() << '\n';
-		}
-
-}
-
-return 0;
+  else{
+  	try
+	  {  
+	  	Fighters A = Fighters::parseUnit(argv[1]);
+	  	Fighters B = Fighters::parseUnit(argv[2]);
+		
+	  	Fighters* winner = Fighters::Fight(A,B);
+		
+	  	std::cout << winner->getID() << " wins. Remaining HP: " << winner->getHP() << std::endl;
+    	}
+  	catch(const std::exception& e)
+  	{
+	  	std::cerr << e.what() << '\n';
+	  }
+  }
+  return 0;
 }

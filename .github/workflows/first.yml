@@ -1,4 +1,4 @@
-name: First workflow
+name: Unit_test_attackspeed
 
 on:
   push
@@ -12,3 +12,4 @@ jobs:
       - run: chmod +x ./run_test.sh
       - run: ./run_test.sh a.out output.txt
       - run: diff output.txt good_output.txt
+      

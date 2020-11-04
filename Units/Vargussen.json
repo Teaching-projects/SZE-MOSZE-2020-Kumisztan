@@ -1,5 +1,6 @@
 {
     "name" : "VARGUSSEN",
-    "hp" : 250,
-    "dmg" : 50
+    "hp" : 150,
+    "dmg" : 30,
+    "asp" : 1.5
 }

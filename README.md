@@ -12,11 +12,16 @@ Például a Petyero.json fájl tartalma:
 {
     "name" : "PETYERO",
     "hp" : 200,
-    "dmg" : 50
+    "dmg" : 10
 }
 ```
 
-A fájlok ellenőrzése után (hogy léteznek-e egyáltalán), a két karakter addig üti egymást, míg egyikük HP-ja 0-ra csökken, elvesztve így a meccset.
+A fájlok ellenőrzése után (hogy léteznek-e egyáltalán), a két karakter addig üti egymást, míg egyikük HP-ja 0-ra csökken, elvesztve így a meccset. 
+Minden egyes bevitt sebzés után az adott karakter a sebzés nagyságával egyenlő értékű XP-t kap. Minden 100. XP után szintet lép, mely a következőkkel jár:
+
+- A maximum HP megnő 10%-kal
+- DMG megnő 10%-kal
+- Az aktuális HP felmegy a maximumra
 
 Futtatáshoz a kódot először le kell fordítani:
 
@@ -33,3 +38,5 @@ Például:
 - Győrvári Péter (ZC67Y8)
 - Unger Márton (BG4HZ2)
 - Varga Dániel (J5HZI6)
+
+A doxygen dokumentáció elérhető itt: https://teaching-projects.github.io/SZE-MOSZE-2020-Kumisztan/
