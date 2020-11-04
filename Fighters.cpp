@@ -4,38 +4,12 @@
  * @brief The substantive methods
  * 
 */
-
 #include "Fighters.h"
-
-Fighters Fighters::parseUnit(const std::string &jsonfile)
-{
-    std::ifstream file("Units/" + jsonfile + ".json");
-    std::string line;
-    std::getline(file, line);
-
-    std::getline(file, line);
-    int colon = line.find(':');
-    std::string ID = line.substr(colon + 3, line.find_last_of('"') - (colon + 3));
-
-    std::getline(file, line);
-    colon = line.find(':');
-    int hp = std::stoi(line.substr(colon + 2, line.find_last_of(',') - (colon + 2)));
-
-    std::getline(file, line);
-    colon = line.find(':');
-    int dmg = std::stoi(line.substr(colon + 2, line.find_last_of(',') - (colon + 2)));
-	
-    std::getline(file, line);
-    colon = line.find(':');
-    double asp = std::stod(line.substr(colon+1));
-	
-    file.close();
-    return Fighters(ID, hp, dmg, asp);    
-}
+#include "json.h"
 
 void Fighters::Hit(Fighters& enemy)
 {
-    if (enemy.hp-getDmg() > 0)
+   if (enemy.hp-getDmg() > 0)
         {
             enemy.hp -= getDmg(); 
             xp += getDmg();
@@ -57,6 +31,24 @@ void Fighters::Hit(Fighters& enemy)
         }
 }
 
+Fighters Fighters::parseUnit(const std::string &jsonfile)
+{
+    std::ifstream File("Units/" + jsonfile);
+	if (File.is_open())
+    {
+        std::map<std::string, std::string> unitValues;
+        unitValues = Parser::Parse_stream(File);
+
+        std::string name = unitValues["name"];
+        int hp = std::stoi(unitValues["hp"]);
+        int dmg = std::stoi(unitValues["dmg"]);
+        double asp = std::stod(unitValues["asp"]);
+        return Fighters(name, hp, dmg, asp);
+    }
+    
+    else throw jsonfile;
+}
+
 Fighters* Fighters::Fight(Fighters& A, Fighters& B)
 {
     double timeA = 0.0; 
@@ -74,10 +66,10 @@ Fighters* Fighters::Fight(Fighters& A, Fighters& B)
         // second turn
         else 
         {
-			B.Hit(A);
+		      	B.Hit(A);
 
             timeB += B.getAsp();	
-		}
+		    }
     }
     
     if (A.getHP() == 0) return &B;

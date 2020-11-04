@@ -15,7 +15,7 @@
 #include <fstream>
 #include <math.h>
 #include <string>
-
+#include "json.h"
 
 class Fighters
 {
@@ -36,7 +36,7 @@ class Fighters
 
 public:
     /// The constructor of Fighters class
-    Fighters(const std::string _ID, int _maxhp, int _dmg, const double _asp): ID(_ID), hp(_maxhp), dmg(_dmg), asp(_asp), maxhp(_maxhp)
+    Fighters(const std::string _ID, int _maxhp, int _dmg, double _asp): ID(_ID), hp(_maxhp), dmg(_dmg), asp(_asp), maxhp(_maxhp)
     {}
 
     /// The destructor of Fighters class

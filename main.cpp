@@ -18,20 +18,21 @@
 
 int main(int argc, char* argv[])
 {
-	(void)argc;
- 	try
-	{  
-		Fighters A = Fighters::parseUnit(argv[1]);
-		Fighters B = Fighters::parseUnit(argv[2]);
+	if(argc!=3) {throw "ERROR";}
+  else{
+  	try
+	  {  
+	  	Fighters A = Fighters::parseUnit(argv[1]);
+	  	Fighters B = Fighters::parseUnit(argv[2]);
 		
-		Fighters* winner = Fighters::Fight(A,B);
+	  	Fighters* winner = Fighters::Fight(A,B);
 		
-		std::cout << winner->getID() << " wins. Remaining HP: " << winner->getHP() << std::endl;
-  	}
-	catch(const std::exception& e)
-	{
-		std::cerr << e.what() << '\n';
-	}
-			
+	  	std::cout << winner->getID() << " wins. Remaining HP: " << winner->getHP() << std::endl;
+    	}
+  	catch(const std::exception& e)
+  	{
+	  	std::cerr << e.what() << '\n';
+	  }
+  }
   return 0;
 }
