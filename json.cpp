@@ -1,32 +1,69 @@
 #include "json.h"
 #include <sstream>
 
-std::map<std::string, std::string> Parser::Parse_string(std::string fileName)
+/*
+std::map<std::string, std::string> Parser::Parse_string(std::string input)
 {
    
     std::map<std::string, std::string> strg;
-	std::string ln,ln1,ln2;
-	std::istringstream stream(fileName);
+	std::string line,line1,line2;
+	std::istringstream stream(input);
 
 	while (stream)
     {
-		ln1 = "", ln2 = "";
-		std::getline(stream, ln);
-		if (ln.find('{') == std::string::npos && ln.find('}') == std::string::npos)
+		line1 = "", line2 = "";
+		std::getline(stream, line);
+		if (line.find('{') == std::string::npos && line.find('}') == std::string::npos)
         {
-			for (unsigned int i = 0; i < ln.find(':'); i++)
+			for (unsigned int i = 0; i < line.find(':'); i++)
             {
-				if (ln[i] != ' ' && ln[i] != '"'){ ln1 += ln[i]; }
+				if (line[i] != ' ' && line[i] != '"'){ line1 += line[i]; }
 			}
-			for (unsigned int i = ln.find(':') + 1; i < ln.size(); i++)
+			for (unsigned int i = line.find(':') + 1; i < line.size(); i++)
             {
-				if (ln[i] != ' ' && ln[i] != '"' && ln[i] != ','){ ln2 += ln[i]; }
+				if (line[i] != ' ' && line[i] != '"' && line[i] != ','){ line2 += line[i]; }
 			}
-			strg.insert({ ln1,ln2 });
+			strg.insert({ line1,line2 });
 		}
 	}
 	return strg;
+} */
+
+std::map<std::string, std::string> Parser::Parse_string(const std::string& input)
+{
+	
+	std::map<std::string, std::string> strg;
+	std::string line, line1, line2;
+	unsigned int i = 0;
+	std::istringstream stream(input);
+	while (stream) {
+		line1 = "", line2 = "", i = 0;
+		std::getline(stream, line);
+		if (line.find('{') == std::string::npos && line.find('}') == std::string::npos) {
+			if (std::isspace(static_cast<unsigned char>(line[i])) || line[i] == '\"' || line[i] == ':' || line[i] == ',') {
+				i++;
+			}
+
+			if (!std::isspace(static_cast<unsigned char>(line[i])) && line[i] != '\"' && line[i] != ':' && line[i] != ',') {
+
+				line1 += line[i];
+				i++;
+			}
+
+			for (unsigned int j = i + 1; j < line.size(); j++) {
+
+				if (!std::isspace(static_cast<unsigned char>(line[j])) && line[j] != '\"' && line[j] != ':' && line[i] != ',') {
+					line2 += line[j];
+				}
+
+			}
+			strg.insert({ line1,line2 });
+		}					
+	}
+	return strg;
 }
+
+
 
 std::map<std::string, std::string> Parser::Parse_file(const std::string& fileName)
 {
