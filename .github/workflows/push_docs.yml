@@ -1,22 +1,25 @@
 name: Push_Docs.yml
 
 on:
-  push
+  pull_request:
+    branches:
+      - master
 
 jobs:
-  deploy:
+
+  Deploy:
     name: Deploy to GitHub Pages
     runs-on: ubuntu-latest
     container: gyorvaripeter/container:latest
     steps:
       - uses: actions/checkout@v2
-      
       - run: make doc
-      
       - name: Push git subdir as branch
-      - uses: s0/git-publish-subdir-action@v2.4.0
-      env:
+        uses: s0/git-publish-subdir-action@v2.4.0
+      
+        env:
         REPO: self
         BRANCH: gh-pages
         FOLDER: DOCS/html
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        CLEAN: true
