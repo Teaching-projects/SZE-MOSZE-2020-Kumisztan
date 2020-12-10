@@ -1,11 +1,7 @@
 name: Push_Docs.yml
 
 on:
-  push:
-    branches:
-      - master
-      - gh-pages
-      - update
+  push
 
 jobs:
   deploy:
@@ -14,9 +10,11 @@ jobs:
     container: gyorvaripeter/container:latest
     steps:
       - uses: actions/checkout@v2
+      
       - run: make doc
+      
       - name: Push git subdir as branch
-        uses: s0/git-publish-subdir-action@v2.4.0
+      - uses: s0/git-publish-subdir-action@v2.4.0
       env:
         REPO: self
         BRANCH: gh-pages
