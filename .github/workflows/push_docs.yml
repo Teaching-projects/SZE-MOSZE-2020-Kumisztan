@@ -1,7 +1,10 @@
 name: Push_Docs.yml
 
 on:
-  push
+  push:
+    branches:
+      - update
+      - master
 
 jobs:
   deploy:
@@ -9,16 +12,15 @@ jobs:
     runs-on: ubuntu-latest
     container: gyorvaripeter/container:latest
     steps:
-    - uses: actions/checkout@v2
-    - name: create docs
-    - run: make doc
-  
-    - name: Push git subdirectory as branch
-    - uses: s0/git-publish-subdir-action@v2.4.0
+      - uses: actions/checkout@v2
+      - name: create docs
+      - run: make doc
+      - name: Push git subdirectory as branch
+     
+      uses: s0/git-publish-subdir-action@v2.4.0
 
       env:
         REPO: self
         BRANCH: gh-pages
         FOLDER: DOCS/html
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        
