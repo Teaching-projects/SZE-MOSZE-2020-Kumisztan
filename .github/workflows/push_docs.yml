@@ -1,7 +1,11 @@
 name: Push_Docs.yml
 
 on:
-  push
+  push:
+    branches:
+      - master
+      - gh-pages
+      - update
 
 jobs:
   deploy:
