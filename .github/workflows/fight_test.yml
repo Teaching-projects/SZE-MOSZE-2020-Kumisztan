@@ -13,7 +13,7 @@ jobs:
       - name: run cppcheck
       - run: make cppcheck
       - name: cppcheck result upload
-        uses: actions/upload-artifact@v2  
+      - uses: actions/upload-artifact@v2  
         with:
           name: cppcheck_output
           path: cppcheck_output.txt
