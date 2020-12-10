@@ -2,25 +2,18 @@ name: Push_Docs.yml
 
 on:
   push
-    ##branches:
-    ##  - attackspeed
-    ##  - gh-pages
 
 jobs:
 
   deploy:
     name: Deploy to GitHub Pages
     runs-on: ubuntu-latest
-    ##container: 
+    container: gyorvaripeter/container:latest
     steps:
     - uses: actions/checkout@v2
     - name: create docs
     - run: make doc
-
-    ##- run: sudo apt-get install doxygen
-    ##- run: sudo apt-get install graphviz
-    ##- run: doxygen doxconf
-
+  
     - name: Push git subdirectory as branch
       uses: s0/git-publish-subdir-action@v2.4.0
 

@@ -27,6 +27,7 @@ cppcheck:
 
 check_memoryleak:
 	valgrind --leak-check=full --error-exitcode=1 ./a.out Petyero.json Vargussen.json
+	chmod +x run_test.sh && ./run_test.sh
 
 doc:
 	doxygen doxconf
