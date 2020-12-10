@@ -16,7 +16,7 @@ jobs:
       - uses: actions/upload-artifact@v2  
         with:
           name: cppcheck_output
-          path: cppcheck_output.txt
+          path: cppcheck_output.txt 
       - name: run memcheck
       - run: make check_memoryleak
 

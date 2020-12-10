@@ -4,7 +4,6 @@ on:
   push
 
 jobs:
-
   deploy:
     name: Deploy to GitHub Pages
     runs-on: ubuntu-latest
@@ -22,3 +21,4 @@ jobs:
         BRANCH: gh-pages
         FOLDER: DOCS/html
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        
