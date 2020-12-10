@@ -1,0 +1,49 @@
+name: fight_test
+
+on:
+  push
+
+jobs:
+  build_and_test:
+    runs-on: ubuntu-latest
+    ##container: 
+    steps:
+      - uses: actions/checkout@v2
+      - run: make
+      ##- run: g++ -std=c++17 main.cpp Fighters.cpp json.cpp -o a.out
+      ##- run: chmod +x ./run_test.sh
+      ##- name: run fight tests
+      ##- run: ./run_test.sh a.out output.txt
+      ##- run: diff output.txt good_output.txt
+      ##- name: install cppcheck
+        ##run: sudo apt install -y cppcheck
+      ##- name: install valgrind
+        ##run: sudo apt install -y valgrind
+      - name: run cppcheck
+      - run: make cppcheck
+        ##run: cppcheck *.cpp --enable=all --output-file=cppcheck_output.txt && chmod +x warning.sh && ./warning.sh && 
+        ##      chmod +x error.sh && ./error.sh
+      - name: cppcheck result upload
+        uses: actions/upload-artifact@v2  
+        with:
+          name: cppcheck_output
+          path: cppcheck_output.txt
+      - name: run memoryleak
+      - run: make check_memoryleak
+
+      ##- name: build
+       ## run: g++ -Wall -Werror -Wextra -std=c++17 *.cpp -o a.out
+      ##- name: run valgrind
+       ## run: valgrind --leak-check=full --error-exitcode=1 ./a.out Petyero.json Vargussen.json
+      ##- name: in-out tests
+       ## run: chmod +x run_test.sh && ./run_test.sh
+
+    runs-on: ubuntu-latest
+      ##container: 
+      
+    steps:
+      - uses: actions/checkout@v2
+      - run: make
+      - run: make fight_and_diff
+      - run: make clean
+        
