@@ -12,7 +12,8 @@ Például a Petyero.json fájl tartalma:
 {
     "name" : "PETYERO",
     "hp" : 200,
-    "dmg" : 10
+    "dmg" : 50,
+    "asp" : 2.1
 }
 ```
 
@@ -22,6 +23,7 @@ Minden egyes bevitt sebzés után az adott karakter a sebzés nagyságával egye
 - A maximum HP megnő 10%-kal
 - DMG megnő 10%-kal
 - Az aktuális HP felmegy a maximumra
+- Attackspeed megnő 10%-kal
 
 Futtatáshoz a kódot először le kell fordítani:
 
@@ -39,4 +41,4 @@ Például:
 - Unger Márton (BG4HZ2)
 - Varga Dániel (J5HZI6)
 
-A doxygen dokumentáció elérhető itt: https://teaching-projects.github.io/SZE-MOSZE-2020-Kumisztan/
+A doxygen dokumentáció itt érhető el: https://teaching-projects.github.io/SZE-MOSZE-2020-Kumisztan/
