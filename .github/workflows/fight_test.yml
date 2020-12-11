@@ -1,0 +1,31 @@
+name: fight_test
+
+on:
+  push
+
+jobs:
+  cppcheck_and_memcheck:
+    runs-on: ubuntu-latest
+    container: gyorvaripeter/container:latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: make
+      - name: run cppcheck
+      - run: make cppcheck
+      - name: cppcheck result upload
+      - uses: actions/upload-artifact@v2  
+        with:
+          name: cppcheck_output
+          path: cppcheck_output.txt 
+      - name: run memcheck
+      - run: make check_memoryleak
+
+  fight: 
+    runs-on: ubuntu-latest
+    container: gyorvaripeter/container:latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: make
+      - run: make fight_and_diff
+      - run: make clean
+        
